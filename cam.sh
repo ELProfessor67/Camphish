@@ -1,3 +1,5 @@
+# camphish created by elprofessor67
+
 #!/bin/bash
 trap 'printf "\n";stop' 2
 
