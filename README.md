@@ -61,11 +61,11 @@ Now go and chek your gallery for victim image...
 
 ## INSTALLATION ON KALI LINUX :
 
-* ```sudo apt-get update && apt-get upgrade -y```
+* ```sudo apt-get update && sudo apt-get upgrade -y```
 * ```sudo apt-get install git```
 * ```git clone https://github.com/ELProfessor67/Camphish.git```
 * ```sudo apt-get install nodejs```
-* ```sudo apt-get install unzip wget curl openssh -y```
+* ```sudo apt-get install unzip wget curl openssh-server -y```
 * ```ssh-keygen```
 ```Then Press Enter 4 Times```
 * ```cd Camphish```
