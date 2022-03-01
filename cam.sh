@@ -107,9 +107,6 @@ else
       chmod +x ngrok > /dev/null 2>&1
       rm -rf ngrok-stable-linux-386.zip
     fi
-  else
-    printf "${red}Download Error${default} \n"
-    exit 1
   fi
 
   # android ngrok download file
@@ -121,9 +118,6 @@ else
       chmod +x ngrok > /dev/null 2>&1
       rm -rf ngrok-stable-linux-arm.zip
     fi
-  else
-    printf "${red}Download Error${default} \n"
-    exit 1
   fi
 fi
 if [[ -e ~/.ngrok2/ngrok.yml ]]; then
