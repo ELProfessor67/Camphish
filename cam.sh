@@ -96,10 +96,10 @@ else
 
   arch=$(uname -a | grep -o 'arm' | head -n1)
   arch2=$(uname -a | grep -o 'Android' | head -n1)
-  arch3=$(uname -a | grep -o 'Linux' | head -n1)
+  arch3=$(uname -a | grep -o 'GNU/Linux' | head -n1)
 
   # linux ngrok file download
-  if [[ $arch == *'arm'* ]] || [[ $arch3 == *'Linux'* ]] ; then
+  if [[ $arch == *'arm'* ]] || [[ $arch3 == *'GNU/Linux'* ]] ; then
     printf "${green}Downloading Ngrok.........${default}\n"
     wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip > /dev/null 2>&1 
     if [[ -e ngrok-stable-linux-386.zip ]]; then
