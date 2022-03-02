@@ -153,9 +153,10 @@ if [[ $link ]]; then
 else
   printf "${red} Direct link not genrate check following possible reason ${default}\n"
   printf "${blue} Ngrok authtoken is not valid ${default}\n"
-  printf "If you are using Android turn on hotspot ${default}\n"
-  printf "Ngrok is already running run this cammand killall ngrok${default}\n"
-  printf "Check your internet connection${default}\n"
+  printf "${blue}If you are using Android turn on hotspot ${default}\n"
+  printf "${blue}Ngrok is already running run this cammand killall ngrok${default}\n"
+  printf "${blue}Check your internet connection${default}\n"
+  exit 1
 fi
 payload
 checkfound
