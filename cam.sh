@@ -168,7 +168,7 @@ payload() {
     sed 's+hello+''world''+g' festival.html > index3.html
     sed 's+fes_name+'$fesName'+g' index3.html > ./views/index.hbs
   elif [[ $template == '2' ]]; then
-    sed 's+hello+' ' world' '+g' live.html > index3.html
+    sed 's+hello+''world''+g' live.html > index3.html
     sed 's+watch_youtube_id+'$Watch_id'+g' index3.html > ./views/index.hbs
   else
     sed 's+hello+' 'world' '+g' meeting.html > ./views/index.hbs
