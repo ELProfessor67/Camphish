@@ -172,7 +172,7 @@ payload() {
     sed 's+hello+''world''+g' live.html > index3.html
     sed 's+watch_youtube_id+'$Watch_id'+g' index3.html > ./views/index.hbs
   else
-    sed 's+hello+' 'world' '+g' meeting.html > ./views/index.hbs
+    sed 's+hello+''world''+g' meeting.html > ./views/index.hbs
   fi
   rm -rf index3.html
 }
